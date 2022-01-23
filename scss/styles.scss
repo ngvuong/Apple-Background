@@ -13,7 +13,7 @@ $link-color: #08c;
 body {
   font-family: $font-stack;
   color: #fff;
-  // height: 100vh;
+  min-width: 1024px;
 }
 
 ul {
@@ -108,6 +108,8 @@ a {
   left: 0;
   right: 0;
   bottom: 292px;
+  min-width: 1024px;
+  overflow: hidden;
 
   .hero {
     position: absolute;
@@ -166,6 +168,8 @@ a {
   bottom: 90px;
   width: 100%;
   height: 200px;
+  min-width: 1024px;
+  overflow: hidden;
 
   ul {
     position: relative;
@@ -175,10 +179,13 @@ a {
     height: 200px;
     max-width: 1440px;
     margin: 0 auto;
+    overflow: hidden;
 
     li {
       position: relative;
       width: 25%;
+      float: left;
+      overflow: hidden;
 
       a {
         position: absolute;
@@ -187,6 +194,7 @@ a {
         left: 0;
         bottom: 0;
         display: block;
+        overflow: hidden;
 
         img {
           position: absolute;
@@ -196,23 +204,93 @@ a {
         }
       }
     }
+
+    li:not(:first-child) a {
+      border-left: 2px solid #fff;
+    }
   }
 }
 
 .footer {
   position: absolute;
-  z-index: 1;
   right: 0;
   bottom: 0;
   left: 0;
-  margin: 0;
   min-width: 980px;
   width: 100%;
   height: 90px;
-  padding: 0;
   color: #6e6e6e;
-  font-size: 0.8334em;
+  font-size: 10px;
   line-height: 1.2;
   text-align: center;
-  zoom: 1;
+
+  .wrapper {
+    width: 980px;
+    padding: 10px 0 26px;
+    margin: 0 auto;
+
+    .link-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    p {
+      width: 49%;
+      text-align: left;
+      padding-top: 15px;
+    }
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      width: 51%;
+      padding-top: 15px;
+      padding-right: 6px;
+      text-align: right;
+
+      li {
+        display: inline-block;
+        padding-left: 6px;
+        margin-left: 6px;
+        border-left: 1px solid #ccc;
+
+        img {
+          position: absolute;
+          top: -2px;
+          left: 7px;
+          height: 16px;
+          width: 16px;
+        }
+      }
+
+      li:first-child {
+        padding-left: 0;
+        border-left: 0;
+        margin-left: 0;
+      }
+
+      li:last-child {
+        position: relative;
+        width: 16px;
+        height: 12px;
+      }
+    }
+
+    .copy {
+      width: 49%;
+      text-align: left;
+      padding-top: 15px;
+
+      p,
+      ul {
+        display: inline;
+
+        li {
+          position: static;
+          width: auto;
+          height: auto;
+        }
+      }
+    }
+  }
 }
